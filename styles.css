@@ -102,25 +102,20 @@ h2 {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Random Quotes styling */
-#quote-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid #e9ecef;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Random Quotes Widget styling */
+#quotes-widget {
+    text-align: center;
 }
 
 #quote-text {
     font-size: 1.2em;
-    font-style: italic;
-    margin: 0 0 15px;
-    color: #343a40; /* Dark grey for quote text */
-    text-align: center;
+    margin: 10px 0;
+    color: #333;
+}
+
+#quote-author {
+    font-size: 1em;
+    color: #555;
 }
 
 #new-quote-button {
@@ -135,4 +130,75 @@ h2 {
 
 #new-quote-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Calculator styling */
+#calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+}
+
+#display {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.button-row {
+    display: flex;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.button {
+    flex: 1;
+    padding: 15px;
+    margin: 5px;
+    background-color: #007bff; /* Blue button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#equals {
+    background-color: #28a745; /* Green button color */
+}
+
+#equals:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+#clear {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #dc3545; /* Red button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#clear:hover {
+    background-color: #c82333; /* Darker red on hover */
 }

@@ -19,8 +19,9 @@
             </div>
             <div class="widget">
                 <h2>Random Quotes</h2>
-                <div id="quote-container">
-                    <p id="quote-text">Click the button to get a random quote!</p>
+                <div id="quotes-widget">
+                    <blockquote id="quote-text"></blockquote>
+                    <p id="quote-author"></p>
                     <button id="new-quote-button">New Quote</button>
                 </div>
             </div>
@@ -47,6 +48,34 @@
         <div class="dashboard-row">
             <div class="widget">
                 <h2>Calculator</h2>
+                <div id="calculator">
+                    <input type="text" id="display" disabled>
+                    <div class="button-row">
+                        <button class="button" data-value="7">7</button>
+                        <button class="button" data-value="8">8</button>
+                        <button class="button" data-value="9">9</button>
+                        <button class="button" data-value="/">/</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="button" data-value="4">4</button>
+                        <button class="button" data-value="5">5</button>
+                        <button class="button" data-value="6">6</button>
+                        <button class="button" data-value="*">*</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="button" data-value="1">1</button>
+                        <button class="button" data-value="2">2</button>
+                        <button class="button" data-value="3">3</button>
+                        <button class="button" data-value="-">-</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="button" data-value="0">0</button>
+                        <button class="button" data-value=".">.</button>
+                        <button class="button" id="equals">=</button>
+                        <button class="button" data-value="+">+</button>
+                    </div>
+                    <button id="clear">C</button>
+                </div>
             </div>
             <div class="widget">
                 <h2>Image Gallery</h2>

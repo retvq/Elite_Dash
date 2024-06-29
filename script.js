@@ -1,108 +1,102 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const addTaskButton = document.getElementById('add-task-button');
-    const newTaskInput = document.getElementById('new-task');
-    const toDoList = document.getElementById('to-do-list');
-    const newQuoteButton = document.getElementById('new-quote-button');
-    const quoteText = document.getElementById('quote-text');
-
-    addTaskButton.addEventListener('click', () => {
-        const taskText = newTaskInput.value.trim();
-        if (taskText !== '') {
-            addTask(taskText);
-            newTaskInput.value = '';
-        }
-    });
-
-    function addTask(taskText) {
-        const listItem = document.createElement('li');
-        listItem.textContent = taskText;
+// To-Do List
+document.getElementById('add-task-button').addEventListener('click', function() {
+    const taskInput = document.getElementById('new-task');
+    const taskText = taskInput.value.trim();
+    if (taskText !== '') {
+        const li = document.createElement('li');
+        li.textContent = taskText;
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.className = 'delete-task-button';
-        deleteButton.addEventListener('click', () => {
-            listItem.remove();
+        deleteButton.addEventListener('click', function() {
+            li.remove();
         });
 
-        listItem.appendChild(deleteButton);
-        toDoList.appendChild(listItem);
+        li.appendChild(deleteButton);
+        document.getElementById('to-do-list').appendChild(li);
+        taskInput.value = '';
     }
+});
 
-    // Currency Converter functionality
-    const currencyWidget = document.getElementById('currency-widget');
-    const fromCurrency = document.getElementById('from-currency');
-    const toCurrency = document.getElementById('to-currency');
-    const amountInput = document.getElementById('amount');
-    const convertButton = document.getElementById('convert-button');
-    const conversionResult = document.getElementById('conversion-result');
+// Random Quotes
+const quotes = [
+    { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+    { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+    { text: "The purpose of our lives is to be happy.", author: "Dalai Lama" },
+    { text: "Get busy living or get busy dying.", author: "Stephen King" },
+    { text: "You have within you right now, everything you need to deal with whatever the world can throw at you.", author: "Brian Tracy" }
+];
 
-    const currencies = [
-        'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD', 'CHF', 'CNY', 'SEK', 'NZD', 'INR', 
-        'SGD', 'HKD', 'KRW', 'BRL', 'ZAR', 'RUB', 'MXN', 'MYR', 'THB'
-    ];
+function getRandomQuote() {
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('quote-text').textContent = quote.text;
+    document.getElementById('quote-author').textContent = `- ${quote.author}`;
+}
 
-    currencies.forEach(currency => {
-        const optionFrom = document.createElement('option');
-        optionFrom.value = currency;
-        optionFrom.textContent = currency;
-        fromCurrency.appendChild(optionFrom);
+document.getElementById('new-quote-button').addEventListener('click', getRandomQuote);
 
-        const optionTo = document.createElement('option');
-        optionTo.value = currency;
-        optionTo.textContent = currency;
-        toCurrency.appendChild(optionTo);
+// Currency Converter
+const currencyOptions = ['USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD'];
+const fromCurrencySelect = document.getElementById('from-currency');
+const toCurrencySelect = document.getElementById('to-currency');
+
+currencyOptions.forEach(currency => {
+    const optionFrom = document.createElement('option');
+    optionFrom.value = currency;
+    optionFrom.textContent = currency;
+    fromCurrencySelect.appendChild(optionFrom);
+
+    const optionTo = document.createElement('option');
+    optionTo.value = currency;
+    optionTo.textContent = currency;
+    toCurrencySelect.appendChild(optionTo);
+});
+
+document.getElementById('convert-button').addEventListener('click', function() {
+    const fromCurrency = fromCurrencySelect.value;
+    const toCurrency = toCurrencySelect.value;
+    const amount = parseFloat(document.getElementById('amount').value);
+    if (isNaN(amount)) {
+        alert('Please enter a valid amount.');
+        return;
+    }
+    
+    // Mock conversion rates
+    const conversionRates = {
+        'USD': { 'EUR': 0.85, 'GBP': 0.75, 'JPY': 110.0, 'AUD': 1.34, 'CAD': 1.25 },
+        'EUR': { 'USD': 1.18, 'GBP': 0.88, 'JPY': 129.0, 'AUD': 1.58, 'CAD': 1.47 },
+        'GBP': { 'USD': 1.33, 'EUR': 1.14, 'JPY': 146.0, 'AUD': 1.80, 'CAD': 1.64 },
+        'JPY': { 'USD': 0.0091, 'EUR': 0.0078, 'GBP': 0.0068, 'AUD': 0.012, 'CAD': 0.011 },
+        'AUD': { 'USD': 0.75, 'EUR': 0.63, 'GBP': 0.56, 'JPY': 82.0, 'CAD': 0.93 },
+        'CAD': { 'USD': 0.80, 'EUR': 0.68, 'GBP': 0.61, 'JPY': 87.0, 'AUD': 1.08 }
+    };
+
+    const rate = conversionRates[fromCurrency][toCurrency];
+    const convertedAmount = (amount * rate).toFixed(2);
+    document.getElementById('conversion-result').textContent = `Converted Amount: ${convertedAmount} ${toCurrency}`;
+});
+
+// Calculator
+const display = document.getElementById('display');
+const buttons = document.querySelectorAll('#calculator .button');
+const equalsButton = document.getElementById('equals');
+const clearButton = document.getElementById('clear');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        display.value += this.dataset.value;
     });
+});
 
-    convertButton.addEventListener('click', () => {
-        const from = fromCurrency.value;
-        const to = toCurrency.value;
-        const amount = amountInput.value;
+equalsButton.addEventListener('click', function() {
+    try {
+        display.value = eval(display.value);
+    } catch (e) {
+        display.value = 'Error';
+    }
+});
 
-        if (amount && !isNaN(amount)) {
-            const conversionRates = {
-                USD: 1.0,
-                EUR: 0.85,
-                GBP: 0.75,
-                JPY: 110.0,
-                AUD: 1.35,
-                CAD: 1.36,
-                CHF: 0.92,
-                CNY: 7.15,
-                SEK: 9.17,
-                NZD: 1.45,
-                INR: 83.35,
-                SGD: 1.36,
-                HKD: 7.85,
-                KRW: 1332.00,
-                BRL: 5.21,
-                ZAR: 18.42,
-                RUB: 73.50,
-                MXN: 17.53,
-                MYR: 4.64,
-                THB: 33.55
-            };
-
-            const result = (amount * conversionRates[to] / conversionRates[from]).toFixed(2);
-            conversionResult.textContent = `${amount} ${from} = ${result} ${to}`;
-        } else {
-            conversionResult.textContent = 'Please enter a valid amount.';
-        }
-    });
-
-    // Random Quotes functionality
-    const quotes = [
-        "The only limit to our realization of tomorrow is our doubts of today. – Franklin D. Roosevelt",
-        "The purpose of our lives is to be happy. – Dalai Lama",
-        "Life is what happens when you're busy making other plans. – John Lennon",
-        "Get busy living or get busy dying. – Stephen King",
-        "You have within you right now, everything you need to deal with whatever the world can throw at you. – Brian Tracy",
-        "Believe you can and you're halfway there. – Theodore Roosevelt",
-        "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. – Buddha",
-        "In three words I can sum up everything I've learned about life: it goes on. – Robert Frost"
-    ];
-
-    newQuoteButton.addEventListener('click', () => {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        quoteText.textContent = quotes[randomIndex];
-    });
+clearButton.addEventListener('click', function() {
+    display.value = '';
 });
