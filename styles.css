@@ -1,0 +1,35 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.dashboard-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.widget {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Adjust the width based on your preference */
+    text-align: center; /* Center the text inside the widget */
+}
+
+h2 {
+    color: #007bff; /* Blue heading color */
+    margin: 0;
+}
