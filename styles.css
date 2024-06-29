@@ -33,3 +33,32 @@ h2 {
     color: #007bff; /* Blue heading color */
     margin: 0;
 }
+
+#to-do-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+#new-task {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+#add-task-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#add-task-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
