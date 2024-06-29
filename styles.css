@@ -101,3 +101,38 @@ h2 {
 #convert-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+/* Random Quotes styling */
+#quote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#quote-text {
+    font-size: 1.2em;
+    font-style: italic;
+    margin: 0 0 15px;
+    color: #343a40; /* Dark grey for quote text */
+    text-align: center;
+}
+
+#new-quote-button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#new-quote-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
