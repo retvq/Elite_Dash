@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Light grey background */
+    background-color: #f8f9fa;
 }
 
 .dashboard-container {
@@ -19,18 +19,18 @@ body {
 }
 
 .widget {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     border: 1px solid #e9ecef;
     border-radius: 10px;
     padding: 20px;
     margin: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%; /* Adjust the width based on your preference */
-    text-align: center; /* Center the text inside the widget */
+    width: 30%;
+    text-align: center;
 }
 
 h2 {
-    color: #007bff; /* Blue heading color */
+    color: #007bff;
     margin: 0;
 }
 
@@ -51,7 +51,7 @@ h2 {
 #add-task-button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #007bff; /* Blue button color */
+    background-color: #007bff;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -60,13 +60,13 @@ h2 {
 }
 
 #add-task-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 .delete-task-button {
     margin-left: 10px;
     padding: 2px 5px;
-    background-color: #dc3545; /* Red button color */
+    background-color: #dc3545;
     color: #ffffff;
     border: none;
     border-radius: 3px;
@@ -75,10 +75,9 @@ h2 {
 }
 
 .delete-task-button:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333;
 }
 
-/* Currency Converter styling */
 #currency-widget select, #currency-widget input {
     width: 100%;
     padding: 12px;
@@ -90,7 +89,7 @@ h2 {
 #convert-button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #007bff; /* Blue button color */
+    background-color: #007bff;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -99,99 +98,83 @@ h2 {
 }
 
 #convert-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
-/* Random Quotes Widget styling */
-#quotes-widget {
-    text-align: center;
-}
-
-#quote-text {
-    font-size: 1.2em;
-    margin: 10px 0;
-    color: #333;
-}
-
-#quote-author {
-    font-size: 1em;
-    color: #555;
-}
-
-#new-quote-button {
-    padding: 10px 20px;
-    background-color: #007bff; /* Blue button color */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-#new-quote-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* Calculator styling */
 #calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff; /* White background */
-    border: 1px solid #e9ecef;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 300px;
 }
 
 #display {
     width: 100%;
-    padding: 10px;
-    font-size: 1.5em;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
+    padding: 15px;
     margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1.5em;
     text-align: right;
-    box-sizing: border-box;
 }
 
-.button-row {
-    display: flex;
+#calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
     width: 100%;
-    margin-bottom: 5px;
 }
 
 .button {
-    flex: 1;
     padding: 15px;
-    margin: 5px;
-    background-color: #007bff; /* Blue button color */
-    color: #ffffff;
-    border: none;
+    border: 1px solid #ced4da;
     border-radius: 5px;
-    font-size: 1.2em;
+    background-color: #ffffff;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    font-size: 1.2em;
 }
 
 .button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #f1f1f1;
+}
+
+#equals, #clear {
+    grid-column: span 2;
 }
 
 #equals {
-    background-color: #28a745; /* Green button color */
+    background-color: #28a745;
+    color: #ffffff;
 }
 
 #equals:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
 }
 
 #clear {
-    margin-top: 10px;
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+#clear:hover {
+    background-color: #c82333;
+}
+
+#weather-widget {
+    text-align: left;
+}
+
+#city-input {
+    width: 80%;
     padding: 10px;
-    background-color: #dc3545; /* Red button color */
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+#fetch-weather-button, #refresh-weather {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -199,6 +182,6 @@ h2 {
     transition: background-color 0.3s ease-in-out;
 }
 
-#clear:hover {
-    background-color: #c82333; /* Darker red on hover */
+#fetch-weather-button:hover, #refresh-weather:hover {
+    background-color: #0056b3;
 }
